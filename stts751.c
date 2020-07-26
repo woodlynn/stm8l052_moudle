@@ -112,8 +112,8 @@ unsigned char ReadSttstemp(void){
 	tmp_L=STTSRead(STTTEMP_L);
 	tmp_H=STTSRead(STTTEMP_H);
 	sttstemp=(u16)tmp_H*10;
-	sttstemp+=(tmp_L>>4)*10;
-	temp10=sttstemp
+	sttstemp+=(tmp_L>>4);
+	temp10=sttstemp;
 	return 0;
 
 }
