@@ -105,7 +105,7 @@ unsigned char initStts751(void){
 
 
 }
-
+//temp10=  temp*10 return 0 is welldone
 unsigned char ReadSttstemp(void){
 	unsigned char tmp_H,tmp_L;
 	int sttstemp;
@@ -117,3 +117,4 @@ unsigned char ReadSttstemp(void){
 	return 0;
 
 }
+
