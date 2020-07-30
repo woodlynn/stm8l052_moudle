@@ -1614,6 +1614,9 @@
       <name>$PROJ_DIR$\24c0x.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\Display.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\irrx.c</name>
     </file>
     <file>
@@ -1636,6 +1639,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\stm8l15x_it.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\stts751.c</name>
     </file>
   </group>
 </project>

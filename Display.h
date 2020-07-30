@@ -6,9 +6,9 @@
 
 #include "LCD5110.h"
 
-void Display_coordinate (u8 longy,offset);
+void Display_coordinate (u8 longy,u8 offset);
 
-void Display_tempdot(temp,zerolevel);
+void Display_tempdot(u16 temp,u8 zerolevel);
 
 #endif
 

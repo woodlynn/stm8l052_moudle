@@ -1,10 +1,5 @@
 [DebugChecksum]
-Checksum=978024216
-[DataSample]
-LogEnabled=0
-GraphEnabled=0
-ShowTimeLog=1
-ShowTimeSum=1
+Checksum=1512594601
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -15,8 +10,18 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[DataSample]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\stts751.c}.95.2" 1 0 0 0 "" 0 ""
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -27,9 +32,5 @@ LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0
-[CallStack]
-ShowArgs=0
-[Disassembly]
-MixedMode=1
 [DebuggerSettings]
 DisableInterruptsWhenStepping=0

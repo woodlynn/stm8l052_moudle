@@ -1,6 +1,10 @@
 #include "stts751.h"
 
  int temp10;
+static void  delay_us(u16 num){
+    while (num--);
+
+}
 
 u16 STTSRead(u8 reg)
 {
@@ -14,7 +18,7 @@ u16 STTSRead(u8 reg)
     while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_MODE_SELECT)); 
   
     /* …Ë÷√I2C¥”∆˜º˛µÿ÷∑£¨I2C÷˜…Ë±∏Œ™–¥ƒ£ Ω*/
-    I2C_Send7bitAddress(I2C1,FDC2214_ADDR, I2C_Direction_Transmitter);
+    I2C_Send7bitAddress(I2C1,STTS751_ADDRESS, I2C_Direction_Transmitter);
     /* ≤‚ ‘EV6 £¨ºÏ≤‚¥”∆˜º˛∑µªÿ“ª∏ˆ”¶¥–≈∫≈*/
     
     while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
@@ -29,17 +33,14 @@ u16 STTSRead(u8 reg)
     while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_MODE_SELECT)); 
           delay_us(10); 
     /* …Ë÷√I2C¥”∆˜º˛µÿ÷∑£¨I2C÷˜…Ë±∏Œ™∂¡ƒ£ Ω*/
-    I2C_Send7bitAddress(I2C1,FDC2214_ADDR, I2C_Direction_Receiver);
+    I2C_Send7bitAddress(I2C1,STTS751_ADDRESS, I2C_Direction_Receiver);
             delay_us(10); 
     /* ≤‚ ‘EV6 £¨ºÏ≤‚¥”∆˜º˛∑µªÿ“ª∏ˆ”¶¥–≈∫≈*/
     while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
         delay_us(100);    
     /*∂¡»° ˝æ› */
-       res= (u16) I2C_ReceiveData(I2C1)<<8;
-       
-//       I2C_AcknowledgeConfig(I2C1,ENABLE);
-        delay_us(100);
-        res +=   I2C_ReceiveData(I2C1);      
+     
+        res =   I2C_ReceiveData(I2C1);      
        
        I2C_AcknowledgeConfig(I2C1,DISABLE);
        delay_us(100);
@@ -63,7 +64,7 @@ u8 STTSSet(u8 reg,u8 data)
     while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_MODE_SELECT)); 
     
     /* …Ë÷√I2C¥”∆˜º˛µÿ÷∑£¨I2C÷˜…Ë±∏Œ™–¥ƒ£ Ω*/
-    I2C_Send7bitAddress(I2C1,FDC2214_ADDR, I2C_Direction_Transmitter);
+    I2C_Send7bitAddress(I2C1,STTS751_ADDRESS, I2C_Direction_Transmitter);
   
     /* ≤‚ ‘EV6 £¨ºÏ≤‚¥”∆˜º˛∑µªÿ“ª∏ˆ”¶¥–≈∫≈*/
   while(!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED));
@@ -80,7 +81,7 @@ u8 STTSSet(u8 reg,u8 data)
       delay_us(10);
       while (!I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_BYTE_TRANSMITTED));
       I2C_AcknowledgeConfig(I2C1,ENABLE);
-      I2C_SendData(I2C1,LSB);   
+//      I2C_SendData(I2C1,LSB);   
       delay_us(10);      
 
     I2C_GenerateSTOP(I2C1,ENABLE);
@@ -96,7 +97,7 @@ unsigned char initStts751(void){
 		STTSSet(STTCONFIG,0X00);
 		STTSSet(STTTHERMLIMIT,0X55);
 
-		retrun 0;
+		return 0;
 	}
 
 

@@ -5,9 +5,9 @@
 
 #define 	STTS751_ADDRESS 0x76
 
-#define 	STTSTATUS			0X00
-#define 	STTTEMP_L			0X01
-#define 	STTTEMP_H			0X02
+#define 	STTTEMP_H			0X00
+#define 	STTSTATUS			0X01
+#define 	STTTEMP_L			0X02
 #define 	STTCONFIG			0X03
 #define 	STTCONER_RATE		0X04
 #define 	STTTEMPLIMIT_HH		0X05
@@ -18,7 +18,7 @@
 #define 	STTTHERMLIMIT		0X20
 #define 	STTTHERMHYSTER		0X21
 #define 	STTPID				0XFD
-#define 	STTMIM				0XFE
+#define 	STTMID				0XFE
 #define 	STTREVNUM			0XFF
 
 
@@ -26,7 +26,7 @@
 extern  int temp10;
 
 
-
+u16 STTSRead(u8 reg);
 
 
 
