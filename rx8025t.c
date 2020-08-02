@@ -17,6 +17,10 @@ static u8  R8025_Init_DataBuf[7] = {
 
 };
 #endif
+static void  delay_us(u16 num){
+    while (num--);
+
+}
 void Rtc8025_Init(void)
 {
    while(I2C_GetFlagStatus(I2C1,I2C_FLAG_BUSY));
@@ -95,7 +99,7 @@ void Rtc8025_Init(void)
       /* 测试EV6 */
     if(I2C_CheckEvent(I2C1,I2C_EVENT_MASTER_BYTE_RECEIVED)){      
       /*从 EEPROM 读取一个字节*/
-       //     Delay(0xF); 
+            delay_us(10); 
       *buffer = I2C_ReceiveData(I2C1);
       /* 指针指向下个存放字节的地址*/
       buffer++;  
@@ -105,14 +109,15 @@ void Rtc8025_Init(void)
       /* 不需要应答*/
         I2C_AcknowledgeConfig(I2C1,DISABLE);
       /* 发结束位*/
-        I2C_GenerateSTOP(I2C1,ENABLE);  
+        I2C_GenerateSTOP(I2C1,ENABLE); 
+          delay_us(10); 
       }
       else      
         /* 不是最后一个字节向从设备发送应答信号*/
        I2C_AcknowledgeConfig(I2C1,ENABLE);
       num--;
     }   
-    
+                delay_us(10); 
   }
   
         I2C_AcknowledgeConfig(I2C1,ENABLE);//TMD THIS DON'T FORGET!

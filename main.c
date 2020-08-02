@@ -122,8 +122,8 @@ int main( void )
     while(1)
     {
         GPIO_ToggleBits(LED1_GPIO_PORT, LED1_GPIO_PINS);//翻转LED1接口电平，实现LED1闪烁
-        Delay(0xFFFF);//延时，便于观察实验现象
-            Rtc8025_ReadData(R8025_DataBuf,0x00,7);
+        Delay(0x00F);//延时，便于观察实验现象
+        //    Rtc8025_ReadData(R8025_DataBuf,0x00,7);
  //       displaytime();
         ReadSttstemp();
         Display_tempdot(temp10,10);

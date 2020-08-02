@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=1512594601
+Checksum=-927028806
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -14,6 +14,8 @@ ByteLimit=50
 ShowArgs=0
 [Disassembly]
 MixedMode=1
+[array_types]
+Fmt0=unsigned char[84]	4	0
 [DataSample]
 LogEnabled=0
 GraphEnabled=0

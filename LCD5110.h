@@ -321,6 +321,8 @@ void DrawBmptoBuf(char bitmap[],u8 x,u8 y,u8 width,u8 height);
 /*-----通过缓冲区画一个图片到5110------*/
 void BufDrawBmp(char bitmap[],u8 x,u8 y,u8 width,u8 height);
 
+extern u8 lcd_buf[LCD_COLUMN][LCD_ROW];
+
 #endif /*USE_BUF*/
 
 #endif /*LCD5110_H*/
